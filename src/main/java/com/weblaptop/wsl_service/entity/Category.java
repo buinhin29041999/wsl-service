@@ -19,5 +19,4 @@ public class Category extends Base {
 
     @OneToMany(mappedBy = "category")
     private List<Product> products;
-
 }

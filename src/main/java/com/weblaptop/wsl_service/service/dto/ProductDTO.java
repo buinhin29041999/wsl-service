@@ -11,4 +11,6 @@ public class ProductDTO extends BaseDTO<Product> {
     private String content;
     private Integer amount;
     private Integer price;
+    private Long categoryId;
+    private Long brandId;
 }

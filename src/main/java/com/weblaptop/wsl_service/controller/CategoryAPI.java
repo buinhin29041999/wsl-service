@@ -21,12 +21,17 @@ public class CategoryAPI {
 
     @PostMapping
     public CategoryDTO create(@RequestBody CategoryDTO categoryDTO) {
-        return categoryService.save(categoryDTO);
+        return categoryService.create(categoryDTO);
     }
 
     @PutMapping(value = "/{id}")
-    public CategoryDTO update(@RequestBody CategoryDTO categoryDTO,@PathVariable("id") Long id) {
+    public CategoryDTO update(@RequestBody CategoryDTO categoryDTO, @PathVariable("id") Long id) {
         categoryDTO.setId(id);
         return categoryService.update(categoryDTO);
+    }
+
+    @DeleteMapping
+    public void delete(@RequestBody Long[] ids) {
+
     }
 }

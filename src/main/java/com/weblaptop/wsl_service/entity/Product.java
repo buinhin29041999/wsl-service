@@ -32,6 +32,4 @@ public class Product extends Base {
 
     @OneToMany(mappedBy = "product")
     private List<Comment> comments;
-
-
 }

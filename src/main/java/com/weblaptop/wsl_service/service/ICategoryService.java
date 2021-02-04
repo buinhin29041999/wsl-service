@@ -7,7 +7,9 @@ import java.util.List;
 public interface ICategoryService {
     List<CategoryDTO> findAll();
 
-    CategoryDTO save(CategoryDTO categoryDTO);
+    CategoryDTO create(CategoryDTO categoryDTO);
 
     CategoryDTO update(CategoryDTO categoryDTO);
+
+    void delete(Long[] ids);
 }

@@ -27,7 +27,7 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public CategoryDTO save(CategoryDTO categoryDTO) {
+    public CategoryDTO create(CategoryDTO categoryDTO) {
         Category category = categoryMapper.toEntity(categoryDTO);
         category = categoryRepository.save(category);
         return categoryMapper.toDTO(category);
@@ -40,6 +40,12 @@ public class CategoryService implements ICategoryService {
         oldCategory.setName(categoryDTO.getName());
         Category category = categoryRepository.save(oldCategory);
         return categoryMapper.toDTO(category);
+    }
+
+    @Override
+    public void delete(Long[] ids) {
+        for (long id : ids)
+            categoryRepository.deleteById(id);
     }
 
 
