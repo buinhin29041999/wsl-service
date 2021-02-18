@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class UserDTO extends BaseDTO<User> {
-    private String userName;
-    private String passWord;
+    private String username;
+    private String password;
     private String fullName;
     private String thumbnail;
     private String status;

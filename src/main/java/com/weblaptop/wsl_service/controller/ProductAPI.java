@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductAPI {
     @Autowired
     ProductService productService;
-//    @GetMapping
-//    public Page<ProductDTO> findAll(@PageableDefault(size = 10)Pageable pageable){
-//        Page<ProductDTO> all = productService.findAll();
-//    }
+
+    @GetMapping
+    public Page<ProductDTO> findAll(@PageableDefault Pageable pageable) {
+        Page<ProductDTO> data = productService.findAll(pageable);
+        return data;
+    }
 }

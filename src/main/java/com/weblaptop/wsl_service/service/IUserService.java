@@ -6,4 +6,11 @@ import java.util.List;
 
 public interface IUserService {
     List<UserDTO> findAll();
+
+    UserDTO create(UserDTO userDTO);
+
+    Boolean isExistUsername(String username);
+
+    Boolean isExistEmail(String email);
+
 }
