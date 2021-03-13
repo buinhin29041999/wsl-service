@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/register").permitAll()
                 .antMatchers("/user/isExistUsername/**").permitAll()
                 .antMatchers("/user/isExistEmail/**").permitAll()
-//                .antMatchers("/product/**").permitAll()
+                .antMatchers("/product").permitAll()
 //                .antMatchers(HttpMethod.OPTIONS, "/**").authenticated()
                 .anyRequest().authenticated()
                 .and()

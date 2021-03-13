@@ -29,6 +29,13 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public ProductDTO findById(Long id) {
+        return productRepository.findById(id)
+                .map(productMapper::toDTO)
+                .orElseThrow(() -> new RuntimeException("exeption"));
+    }
+
+    @Override
     public ProductDTO create(ProductDTO productDTO) {
         return null;
     }

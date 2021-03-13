@@ -2,8 +2,10 @@ package com.weblaptop.wsl_service.service.mapper;
 
 import com.weblaptop.wsl_service.entity.User;
 import com.weblaptop.wsl_service.service.dto.UserDTO;
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -12,9 +14,10 @@ public interface UserMapper {
     @Mapping(source = "role.id", target = "roleId")
     UserDTO toDTO(User user);
 
-    @Mapping(source = "roleId", target = "role.id")
+    @InheritInverseConfiguration
     User toEntity(UserDTO userDTO);
 
-    @Mapping(source = "role.id", target = "roleId")
     List<UserDTO> lstEntityToDTO(List<User> userList);
+
+    void dtoToEntity(UserDTO userDTO, @MappingTarget User user);
 }

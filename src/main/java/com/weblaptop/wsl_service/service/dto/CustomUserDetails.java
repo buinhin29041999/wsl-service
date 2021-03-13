@@ -3,7 +3,6 @@ package com.weblaptop.wsl_service.service.dto;
 import com.weblaptop.wsl_service.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -19,7 +19,7 @@ public class UserAPI {
     }
 
     @GetMapping(value = "/isExistEmail/{email}")
-    public Boolean isExistEmail(@PathVariable(value = "email") String email){
+    public Boolean isExistEmail(@PathVariable(value = "email") String email) {
         return userService.isExistEmail(email);
     }
 

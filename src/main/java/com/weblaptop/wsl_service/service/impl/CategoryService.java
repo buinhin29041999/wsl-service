@@ -6,11 +6,14 @@ import com.weblaptop.wsl_service.service.ICategoryService;
 import com.weblaptop.wsl_service.service.dto.CategoryDTO;
 import com.weblaptop.wsl_service.service.mapper.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class CategoryService implements ICategoryService {
 
     @Autowired
@@ -19,7 +22,8 @@ public class CategoryService implements ICategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
 
-
+    @Modifying
+    @Transactional(readOnly = true)
     @Override
     public List<CategoryDTO> findAll() {
         List<Category> dtoList = categoryRepository.findAll();
@@ -36,10 +40,8 @@ public class CategoryService implements ICategoryService {
     @Override
     public CategoryDTO update(CategoryDTO categoryDTO) {
         Category oldCategory = categoryRepository.getOne(categoryDTO.getId());
-        oldCategory.setCode(categoryDTO.getCode());
-        oldCategory.setName(categoryDTO.getName());
-        Category category = categoryRepository.save(oldCategory);
-        return categoryMapper.toDTO(category);
+        categoryMapper.dtoToEntity(categoryDTO, oldCategory);
+        return categoryMapper.toDTO(oldCategory);
     }
 
     @Override

@@ -2,13 +2,14 @@ package com.weblaptop.wsl_service.entity;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-@Table
 @Data
 public class Comment extends Base {
-    @Column
+
     private String content;
 
     @ManyToOne

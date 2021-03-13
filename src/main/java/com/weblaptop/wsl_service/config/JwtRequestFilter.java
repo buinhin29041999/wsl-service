@@ -1,6 +1,5 @@
 package com.weblaptop.wsl_service.config;
 
-import com.weblaptop.wsl_service.service.JwtUserDetailsService;
 import com.weblaptop.wsl_service.service.JwtUserService;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,6 @@ import java.io.IOException;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
-    @Autowired
-    private JwtUserDetailsService jwtUserDetailsService;
 
     @Autowired
     private JwtUserService jwtUserService;
